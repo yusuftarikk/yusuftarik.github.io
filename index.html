@@ -3,292 +3,592 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yusuf Tarik Hassan | Data Analyst</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
+    <title>Yusuf Tarik - Data Analyst</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Custom Styles -->
-    <style>
-        /* Define the cozy color palette and fonts */
-        body {
-            background-color: #F5F5DC; /* Cream */
-            font-family: 'Nunito', sans-serif;
-            color: #3D405B; /* Charcoal */
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'typewriter': 'typewriter 2.5s steps(40) 1s 1 normal both, blink 1s steps(40) infinite normal',
+                        'fade-in': 'fade-in 1s ease-out forwards',
+                    },
+                    keyframes: {
+                        'typewriter': {
+                            'from': { width: '0' },
+                            'to': { width: '100%' }
+                        },
+                        'blink': {
+                            'from, to': { 'border-color': 'transparent' },
+                            '50%': { 'border-color': 'rgb(45 212 191)' }
+                        },
+                        'fade-in': {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
         }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Lora', serif;
-        }
-        .bg-cream { background-color: #F5F5DC; }
-        .bg-terracotta { background-color: #E07A5F; }
-        .bg-sage { background-color: #B2B8A3; }
-        .bg-dusty-blue { background-color: #81A4CD; }
-        .text-charcoal { color: #3D405B; }
-        .text-cream { color: #F5F5DC; }
-
-        /* Smooth scroll behavior */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Project Accordion transition */
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-in-out;
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .section-hidden {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.8s ease-out;
+            }
+            
+            .section-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .frosted-glass {
+                background: rgba(30, 41, 59, 0.7);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+            }
+            
+            .skill-bar {
+                height: 8px;
+                background-color: rgb(51, 65, 85);
+                border-radius: 4px;
+                overflow: hidden;
+            }
+            
+            .skill-progress {
+                height: 100%;
+                background: linear-gradient(90deg, rgb(20, 184, 166), rgb(45, 212, 191));
+                border-radius: 4px;
+                transition: width 1s ease-in-out;
+            }
         }
     </style>
 </head>
-<body class="bg-cream text-charcoal">
-
-    <!-- Header & Navigation -->
-    <header class="sticky top-0 z-50 bg-cream/80 backdrop-blur-sm shadow-sm">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold font-lora">Yusuf Tarik</a>
-            <div class="hidden md:flex space-x-8 items-center">
-                <a href="#about" class="hover:text-terracotta transition-colors duration-300">About</a>
-                <a href="#projects" class="hover:text-terracotta transition-colors duration-300">Projects</a>
-                <a href="#contact" class="hover:text-terracotta transition-colors duration-300">Contact</a>
-                <a href="#" class="bg-terracotta text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-colors duration-300 shadow">View Resume</a>
+<body class="bg-slate-900 text-slate-300 font-sans">
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 frosted-glass border-b border-slate-800">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-semibold text-white">Yusuf Tarik</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="hover:text-teal-400 transition-colors duration-300">About</a>
+                <a href="#skills" class="hover:text-teal-400 transition-colors duration-300">Skills</a>
+                <a href="#experience" class="hover:text-teal-400 transition-colors duration-300">Experience</a>
+                <a href="#projects" class="hover:text-teal-400 transition-colors duration-300">Projects</a>
+                <a href="#contact" class="hover:text-teal-400 transition-colors duration-300">Contact</a>
             </div>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-button" class="md:hidden text-slate-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
             </button>
-        </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
-            <a href="#about" class="block hover:text-terracotta transition-colors duration-300">About</a>
-            <a href="#projects" class="block hover:text-terracotta transition-colors duration-300">Projects</a>
-            <a href="#contact" class="block hover:text-terracotta transition-colors duration-300">Contact</a>
-            <a href="#" class="block bg-terracotta text-white text-center mt-2 px-4 py-2 rounded-lg hover:bg-opacity-90 transition-colors duration-300 shadow">View Resume</a>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="container mx-auto px-6 py-12 md:py-20">
-
-        <!-- Hero Section -->
-        <section id="hero" class="text-center min-h-[60vh] flex flex-col items-center justify-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm Yusuf Tarik Hassan.</h1>
-            <h2 class="text-2xl md:text-3xl text-terracotta mb-6">I turn complex data into clear, actionable stories.</h2>
-            <p class="max-w-3xl mx-auto text-lg leading-relaxed mb-8">
-                I’m a Data Analyst based in Alexandria, Egypt, with a passion for helping businesses understand their customers and drive growth. I specialize in transforming raw data into beautiful, intuitive insights using tools like SQL, Power BI, and Tableau.
-            </p>
-            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="#projects" class="bg-terracotta text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors duration-300 shadow-lg text-lg">View My Work</a>
-                <a href="#contact" class="bg-charcoal text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors duration-300 shadow-lg text-lg">Get In Touch</a>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden frosted-glass border-t border-slate-800">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#about" class="hover:text-teal-400 transition-colors duration-300">About</a>
+                <a href="#skills" class="hover:text-teal-400 transition-colors duration-300">Skills</a>
+                <a href="#experience" class="hover:text-teal-400 transition-colors duration-300">Experience</a>
+                <a href="#projects" class="hover:text-teal-400 transition-colors duration-300">Projects</a>
+                <a href="#contact" class="hover:text-teal-400 transition-colors duration-300">Contact</a>
             </div>
-        </section>
+        </div>
+    </nav>
 
-        <!-- About Me Section -->
-        <section id="about" class="py-20 md:py-32">
-            <div class="grid md:grid-cols-5 gap-12 items-center">
-                <div class="md:col-span-2">
-                    <!-- Your picture -->
-                    <div class="bg-sage w-full aspect-square rounded-lg shadow-lg flex items-center justify-center">
-                       <img src="IMG-20250626-WA0017.jpg" alt="Yusuf Tarik Hassan Ali" class="rounded-lg object-cover w-full h-full"/>
-                    </div>
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center pt-16">
+        <div class="container mx-auto px-4 py-16">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Yusuf Tarik</h1>
+                <div class="h-12 md:h-16 mb-6 overflow-hidden">
+                    <h2 class="text-xl md:text-3xl font-medium text-teal-400 inline-block overflow-hidden whitespace-nowrap border-r-4 border-teal-400 animate-typewriter">
+                        Data Analyst & BI Specialist
+                    </h2>
                 </div>
-                <div class="md:col-span-3">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">A Little More About Me</h2>
-                    <div class="space-y-4 text-lg leading-relaxed">
-                        <p>My journey into data began with a B.Sc. in Physics and Chemistry from Alexandria University, where I developed a deep love for uncovering hidden patterns. Today, I apply that same curiosity to the world of data analytics. I believe the most powerful insights come from understanding both the data and the people it represents.</p>
-                        <p>I thrive on translating complex datasets into strategies that make a real-world impact, such as developing retention strategies that reduced customer churn by 8% and improved NPS by 23 points for a major telecom client.</p>
-                        <p>I'm a lifelong learner, always eager to expand my toolkit. I'm currently strengthening my expertise by pursuing the Microsoft PL-300 certification to build even more robust BI solutions. When I'm not exploring datasets, you can find me leading science club activities or diving into a new course.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills & Tools Section -->
-        <section id="skills" class="py-20 md:py-32 bg-sage/20 rounded-lg -mx-6 px-6">
-            <div class="text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-12">My Toolkit</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Data Visualization -->
-                    <div class="bg-cream p-8 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                        <h3 class="text-2xl font-bold mb-4">Data Visualization</h3>
-                        <ul class="space-y-2 text-lg">
-                            <li>Power BI</li>
-                            <li>Tableau</li>
-                            <li>Python (Matplotlib)</li>
-                            <li>R (ggplot2)</li>
-                            <li>Excel (Pivot Tables)</li>
-                        </ul>
-                    </div>
-                    <!-- Data Wrangling & Analysis -->
-                    <div class="bg-cream p-8 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                        <h3 class="text-2xl font-bold mb-4">Data Wrangling & Analysis</h3>
-                        <ul class="space-y-2 text-lg">
-                            <li>SQL (Joins, Window Functions)</li>
-                            <li>Python (pandas, NumPy)</li>
-                            <li>ETL (Basics)</li>
-                            <li>Statistical Analysis & A/B Testing</li>
-                            <li>NLP (Complaint Analysis)</li>
-                        </ul>
-                    </div>
-                    <!-- Cloud & Databases -->
-                    <div class="bg-cream p-8 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                        <h3 class="text-2xl font-bold mb-4">Cloud & Databases</h3>
-                        <ul class="space-y-2 text-lg">
-                            <li>Azure Data Studio (Beginner)</li>
-                            <li>Snowflake (Learning)</li>
-                            <li>AWS (Learning)</li>
-                            <li>Microsoft Fabric</li>
-                        </ul>
-                    </div>
+                <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
+                    Transforming complex datasets into actionable insights through advanced analytics, visualization, and data-driven strategies.
+                </p>
+                <div class="flex justify-center space-x-6">
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/yusuf-tarik-hassan-ali-bba8581b9/" target="_blank" class="text-slate-400 hover:text-teal-400 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <!-- GitHub -->
+                    <a href="https://github.com/yusuftarikk" target="_blank" class="text-slate-400 hover:text-teal-400 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <!-- Email -->
+                    <a href="mailto:yousseftarik99@gmail.com" class="text-slate-400 hover:text-teal-400 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Featured Projects Section -->
-        <section id="projects" class="py-20 md:py-32">
-            <div class="text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-12">A Few Things I've Built</h2>
+    <!-- About Section -->
+    <section id="about" class="py-20 section-hidden">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">About Me</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <p class="mb-4 text-lg">
+                            Data Analyst with proven impact in customer analytics, churn modeling, and KPI reporting. Skilled in SQL, Power BI, and Tableau, with hands-on experience translating telecom, retail, and banking datasets into actionable insights.
+                        </p>
+                        <p class="mb-4 text-lg">
+                            Delivered retention strategies that reduced churn by 8% and improved NPS by 23 points at Comcast (via Sutherland). Experienced in automating reporting workflows, building executive dashboards, and applying NLP for complaint analysis.
+                        </p>
+                        <p class="mb-8 text-lg">
+                            Currently pursuing Microsoft PL-300 to strengthen BI expertise and expand capabilities in data analytics and visualization.
+                        </p>
+                        <a href="#contact" class="inline-block px-6 py-3 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition-colors duration-300">
+                            Get In Touch
+                        </a>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-white mb-6">Education</h3>
+                        <div class="mb-6">
+                            <h4 class="text-lg font-medium text-teal-400">B.Sc. in Physics and Chemistry</h4>
+                            <p class="text-slate-400">Alexandria University | 2018 – 2022</p>
+                            <p class="text-slate-400 mt-2">Published final-year project, led science club activities at Bibliotheca Alexandrina.</p>
+                        </div>
+                        
+                        <h3 class="text-xl font-semibold text-white mb-6">Certifications</h3>
+                        <ul class="space-y-2 text-slate-400">
+                            <li>• Data Analysis Nanodegree – Udacity</li>
+                            <li>• Tableau Essential Training – LinkedIn Learning</li>
+                            <li>• Product Management Essentials – IBM (Nov 2024)</li>
+                            <li>• CompTIA Data+: Data Governance</li>
+                            <li>• Six Sigma Exploratory Data Analysis</li>
+                            <li>• Financial Statement Analysis for Non-financial Professionals</li>
+                            <li>• In Progress: Microsoft PL-300, IBM AI Product Manager (Coursera)</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="space-y-8 max-w-4xl mx-auto">
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-slate-800/30 section-hidden">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Technical Skills</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-white mb-4">Data Analysis & Visualization</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-slate-300">SQL</span>
+                                    <span class="text-teal-400">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-slate-300">Power BI</span>
+                                    <span class="text-teal-400">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-slate-300">Tableau</span>
+                                    <span class="text-teal-400">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-slate-300">Looker</span>
+                                    <span class="text-teal-400">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-slate-300">Python (pandas, NumPy)</span>
+                                    <span class="text-teal-400">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-slate-300">R & R Studio</span>
+                                <span class="text-teal-400">Intermediate</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-white mb-4">Analytics & Tools</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-slate-300">Statistical Analysis</span>
+                                    <span class="text-teal-400">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-slate-300">Excel</span>
+                                    <span class="text-teal-400">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-slate-300">NLP</span>
+                                    <span class="text-teal-400">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-slate-300">Azure Data Studio</span>
+                                    <span class="text-teal-400">Beginner</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 60%"></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-slate-300">Google Cloud Platform</span>
+                                        <span class="text-teal-400">Intermediate</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 60%"></div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12">
+                    <h3 class="text-xl font-semibold text-white mb-6 text-center">Core Competencies</h3>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-teal-400">Customer Segmentation</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-teal-400">Churn Analysis</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-teal-400">KPI Dashboarding</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-teal-400">Predictive Analytics</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-teal-400">Data Governance</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-teal-400">Reporting Automation</span>
+                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-teal-400">Stakeholder Management</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 section-hidden">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Professional Experience</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="relative border-l border-slate-700 ml-4">
+                    <!-- Current Role -->
+                    <div class="mb-10 ml-6">
+                        <div class="absolute -left-2 mt-1.5 h-4 w-4 rounded-full border border-white bg-teal-500"></div>
+                        <div class="flex flex-wrap items-baseline">
+                            <h3 class="text-xl font-semibold text-white">Associate Account Management (Loyalty & Retention Program)</h3>
+                            <span class="ml-2 text-teal-400">Sutherland</span>
+                        </div>
+                        <p class="text-slate-400 mb-2">Alexandria, Egypt | Nov 2024 - Present</p>
+                        <ul class="text-slate-400 space-y-2 mt-4">
+                            <li class="flex items-start">
+                                <span class="text-teal-400 mr-2">•</span>
+                                <span>Partnering with Comcast's Loyalty & Retention Department to support decision-making through data analysis on customer churn, engagement, and satisfaction.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-teal-400 mr-2">•</span>
+                                <span>Collaborating with account managers to translate customer insights into data-backed retention strategies.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Previous Role -->
+                    <div class="mb-10 ml-6">
+                        <div class="absolute -left-2 mt-1.5 h-4 w-4 rounded-full border border-white bg-teal-500"></div>
+                        <div class="flex flex-wrap items-baseline">
+                            <h3 class="text-xl font-semibold text-white">Associate Account Management Billing Program</h3>
+                            <span class="ml-2 text-teal-400">Sutherland</span>
+                        </div>
+                        <p class="text-slate-400 mb-2">Alexandria, Egypt | Sep 2022 – Apr 2023</p>
+                        <ul class="text-slate-400 space-y-2 mt-4">
+                            <li class="flex items-start">
+                                <span class="text-teal-400 mr-2">•</span>
+                                <span>Reduced customer churn by 8% through data-driven retention strategies.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-teal-400 mr-2">•</span>
+                                <span>Improved customer satisfaction (NPS) from 22% → 45% (+23 pts) by streamlining billing reporting.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-teal-400 mr-2">•</span>
+                                <span>Built customer behavior models that optimized sales participation rate (+1%) and satisfaction (+20%).</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-teal-400 mr-2">•</span>
+                                <span>Produced complaint analysis dashboards that identified top issues and informed process improvement.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Volunteering -->
+                    <div class="ml-6">
+                        <div class="absolute -left-2 mt-1.5 h-4 w-4 rounded-full border border-white bg-teal-500"></div>
+                        <div class="flex flex-wrap items-baseline">
+                            <h3 class="text-xl font-semibold text-white">Vice President of Safwa Student Chapter</h3>
+                        </div>
+                        <p class="text-slate-400 mb-2">Faculty of Science, Alexandria | Sep 2019 – Jun 2021</p>
+                        <ul class="text-slate-400 space-y-2 mt-4">
+                            <li class="flex items-start">
+                                <span class="text-teal-400 mr-2">•</span>
+                                <span>Organized academic workshops and seminars to enhance student knowledge in scientific fields.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-teal-400 mr-2">•</span>
+                                <span>Led a team dedicated to fostering scientific knowledge and promoting academic excellence.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-slate-800/30 section-hidden">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                 <!-- Project 1 -->
-                <div class="accordion-item bg-cream rounded-lg shadow-md border border-gray-200">
-                    <button class="accordion-header w-full text-left p-6 flex justify-between items-center">
-                        <div>
-                            <h4 class="text-2xl font-bold">Comcast Complaints Analysis</h4>
-                            <p class="text-lg text-charcoal/80 mt-1">An interactive executive dashboard to monitor, categorize, and understand customer complaints.</p>
-                            <div class="mt-4 flex flex-wrap gap-2">
-                                <span class="bg-dusty-blue/20 text-dusty-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">Tableau</span>
-                                <span class="bg-dusty-blue/20 text-dusty-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">NLP</span>
-                                <span class="bg-dusty-blue/20 text-dusty-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">Python</span>
-                            </div>
+                <div class="frosted-glass rounded-xl overflow-hidden border border-slate-700 hover:border-teal-400/30 transition-all duration-300">
+                    <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Coffee+Sales+Dashboard" alt="Coffee Sales Dashboard" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">Coffee Sales Dashboard</h3>
+                        <p class="text-slate-400 mb-4">Comprehensive coffee sales analysis with dynamic dashboard in Excel using XLOOKUP, INDEX/MATCH, Pivot Tables, and charts to visualize sales trends, top customers, and geographic breakdown.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-slate-700 rounded text-sm">Excel</span>
+                            <span class="px-2 py-1 bg-slate-700 rounded text-sm">XLOOKUP</span>
+                            <span class="px-2 py-1 bg-slate-700 rounded text-sm">Pivot Tables</span>
+                            <span class="px-2 py-1 bg-slate-700 rounded text-sm">Data Visualization</span>
                         </div>
-                        <span class="text-2xl transform transition-transform duration-300">&gt;</span>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="p-6 border-t border-gray-200 space-y-4 text-lg">
-                            <p><strong>The Challenge:</strong> The executive team needed a clear, data-driven way to understand complaint trends and prioritize process improvements.</p>
-                            <p><strong>My Approach:</strong> I built an NLP pipeline in Python to categorize over 2,000 customer complaints by keyword and sentiment. I then designed and launched an interactive Tableau dashboard for executives to explore this data in real-time.</p>
-                            <p><strong>The Impact:</strong> This project enabled data-driven process improvements that directly addressed and reduced recurring complaint categories.</p>
-                            <a href="#" class="inline-block text-terracotta font-bold hover:underline">View Live Dashboard &rarr;</a>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/yusuftarikk/Coffee-Sales-Project.git" target="_blank" class="text-teal-400 hover:text-teal-300 transition-colors duration-300">View Project</a>
                         </div>
                     </div>
                 </div>
+
                 <!-- Project 2 -->
-                <div class="accordion-item bg-cream rounded-lg shadow-md border border-gray-200">
-                    <button class="accordion-header w-full text-left p-6 flex justify-between items-center">
-                        <div>
-                            <h4 class="text-2xl font-bold">Plant Co Performance Dashboard</h4>
-                            <p class="text-lg text-charcoal/80 mt-1">A Power BI dashboard to analyze sales, track profit, and automate KPI reporting.</p>
-                            <div class="mt-4 flex flex-wrap gap-2">
-                                <span class="bg-dusty-blue/20 text-dusty-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">Power BI</span>
-                                <span class="bg-dusty-blue/20 text-dusty-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">Reporting Automation</span>
-                                <span class="bg-dusty-blue/20 text-dusty-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">KPIs</span>
-                            </div>
+                <div class="frosted-glass rounded-xl overflow-hidden border border-slate-700 hover:border-teal-400/30 transition-all duration-300">
+                    <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Plant+Co+Dashboard" alt="Plant Co Performance Dashboard" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">Plant Co Performance Dashboard</h3>
+                        <p class="text-slate-400 mb-4">Developed a Power BI dashboard to analyze product sales, gross profit, and quantity trends over time. Automated KPI reporting, reducing manual efforts by 8+ hours monthly.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-slate-700 rounded text-sm">Power BI</span>
+                            <span class="px-2 py-1 bg-slate-700 rounded text-sm">KPI Reporting</span>
+                            <span class="px-2 py-1 bg-slate-700 rounded text-sm">Automation</span>
+                            <span class="px-2 py-1 bg-slate-700 rounded text-sm">Data Visualization</span>
                         </div>
-                        <span class="text-2xl transform transition-transform duration-300">&gt;</span>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="p-6 border-t border-gray-200 space-y-4 text-lg">
-                            <p><strong>The Challenge:</strong> Management was spending over 8 hours per month manually compiling reports, which was inefficient and prone to errors.</p>
-                            <p><strong>My Approach:</strong> I developed a comprehensive Power BI dashboard that connected directly to sales data, providing real-time trends for sales, profit, and quantities sold.</p>
-                            <p><strong>The Impact:</strong> This dashboard automated KPI reporting, saving 8+ hours of manual work each month and helping leadership identify underperforming product lines for smarter inventory decisions.</p>
-                             <a href="#" class="inline-block text-terracotta font-bold hover:underline">View Live Dashboard &rarr;</a>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/yusuftarikk/Plant-Co-project" target="_blank" class="text-teal-400 hover:text-teal-300 transition-colors duration-300">View Project</a>
                         </div>
                     </div>
                 </div>
+
                 <!-- Project 3 -->
-                 <div class="accordion-item bg-cream rounded-lg shadow-md border border-gray-200">
-                    <button class="accordion-header w-full text-left p-6 flex justify-between items-center">
-                        <div>
-                            <h4 class="text-2xl font-bold">Online Sales Customer Segmentation</h4>
-                            <p class="text-lg text-charcoal/80 mt-1">A deep dive into 10,000+ transaction records to uncover revenue patterns.</p>
-                            <div class="mt-4 flex flex-wrap gap-2">
-                                <span class="bg-dusty-blue/20 text-dusty-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">Python</span>
-                                <span class="bg-dusty-blue/20 text-dusty-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">Pandas</span>
-                                <span class="bg-dusty-blue/20 text-dusty-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">Customer Segmentation</span>
-                            </div>
+                <div class="frosted-glass rounded-xl overflow-hidden border border-slate-700 hover:border-teal-400/30 transition-all duration-300">
+                    <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Comcast+Complaints+Analysis" alt="Comcast Complaints Analysis" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">Comcast Complaints Analysis</h3>
+                        <p class="text-slate-400 mb-4">Built an NLP pipeline to categorize 2,000+ customer complaints and designed an interactive Tableau dashboard for executives to monitor complaint trends and root causes.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-slate-700 rounded text-sm">NLP</span>
+                            <span class="px-2 py-1 bg-slate-700 rounded text-sm">Tableau</span>
+                            <span class="px-2 py-1 bg-slate-700 rounded text-sm">Sentiment Analysis</span>
+                            <span class="px-2 py-1 bg-slate-700 rounded text-sm">Data Visualization</span>
                         </div>
-                        <span class="text-2xl transform transition-transform duration-300">&gt;</span>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="p-6 border-t border-gray-200 space-y-4 text-lg">
-                             <p><strong>The Challenge:</strong> A retail client wanted to move from mass marketing to a more targeted approach but didn't know which customers to focus on.</p>
-                            <p><strong>My Approach:</strong> Using Python (pandas and matplotlib), I analyzed the transaction data to segment customers into distinct behavioral groups.</p>
-                            <p><strong>The Impact:</strong> My analysis identified a high-value segment that contributed to 12% of total revenue, directly informing new, targeted marketing strategies.</p>
-                            <a href="#" class="inline-block text-terracotta font-bold hover:underline">View Analysis on GitHub &rarr;</a>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/yusuftarikk/Comcast-Customer-Complaint-Analysis-using-NLP-Tableau.git" target="_blank" class="text-teal-400 hover:text-teal-300 transition-colors duration-300">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="frosted-glass rounded-xl overflow-hidden border border-slate-700 hover:border-teal-400/30 transition-all duration-300">
+                    <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Online+Sales+Analysis" alt="Online Sales Analysis" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">Online Sales Data Analysis</h3>
+                        <p class="text-slate-400 mb-4">Analyzed 10k+ transaction records using Python (pandas, matplotlib) to uncover revenue patterns and identify high-value customer segments that contributed to 12% of total revenue.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-slate-700 rounded text-sm">Python</span>
+                            <span class="px-2 py-1 bg-slate-700 rounded text-sm">pandas</span>
+                            <span class="px-2 py-1 bg-slate-700 rounded text-sm">matplotlib</span>
+                            <span class="px-2 py-1 bg-slate-700 rounded text-sm">Customer Segmentation</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://www.kaggle.com/code/yousseftarik/data-analysis-on-online-sales" target="_blank" class="text-teal-400 hover:text-teal-300 transition-colors duration-300">View Project</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="text-center py-20 md:py-32">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Let's Connect</h2>
-            <p class="max-w-2xl mx-auto text-lg leading-relaxed mb-8">
-                I'm always excited to discuss new projects, talk about data, or explore potential opportunities. Feel free to reach out!
-            </p>
-            <a href="mailto:yousseftarik99@gmail.com" class="text-2xl font-bold text-terracotta hover:underline mb-8 inline-block">
-                yousseftarik99@gmail.com
-            </a>
-            <div class="flex justify-center space-x-4 mt-4">
-                 <a href="https://www.linkedin.com/in/yusuf-tarik-hassan-ali-bba8581b9/" target="_blank" class="bg-charcoal text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors duration-300 shadow-lg text-lg">LinkedIn Profile</a>
-                <a href="#" class="bg-terracotta text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors duration-300 shadow-lg text-lg">Download My Resume</a>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 section-hidden">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Let's Connect!</h2>
+            <div class="max-w-2xl mx-auto text-center">
+                <p class="text-lg text-slate-400 mb-8">
+                    I'm always interested in new opportunities, collaborations, or discussing how data analytics can drive business success.
+                </p>
+                <a href="mailto:yousseftarik99@gmail.com" class="inline-block px-6 py-3 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition-colors duration-300 mb-12">
+                    yousseftarik99@gmail.com
+                </a>
+                
+                <div class="flex justify-center space-x-8">
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/yusuf-tarik-hassan-ali-bba8581b9/" target="_blank" class="text-slate-400 hover:text-teal-400 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <!-- GitHub -->
+                    <a href="https://github.com/yusuftarikk" target="_blank" class="text-slate-400 hover:text-teal-400 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <!-- Email -->
+                    <a href="mailto:yousseftarik99@gmail.com" class="text-slate-400 hover:text-teal-400 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </main>
-    
     <!-- Footer -->
-    <footer class="bg-sage/20 py-8">
-        <div class="container mx-auto px-6 text-center text-charcoal/70">
-            <p>&copy; 2025 | Designed and built by Yusuf Tarik Hassan Ali.</p>
+    <footer class="py-8 border-t border-slate-800">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-slate-500">© <span id="current-year"></span> Yusuf Tarik. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- JavaScript for interactivity -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Mobile menu toggle
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-            });
-
-            // Project accordion functionality
-            const accordionItems = document.querySelectorAll('.accordion-item');
-            accordionItems.forEach(item => {
-                const header = item.querySelector('.accordion-header');
-                const content = item.querySelector('.accordion-content');
-                const icon = header.querySelector('span');
-
-                header.addEventListener('click', () => {
-                    // Close other accordions
-                    accordionItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            const otherContent = otherItem.querySelector('.accordion-content');
-                            const otherIcon = otherItem.querySelector('.accordion-header span');
-                            otherContent.style.maxHeight = null;
-                            otherIcon.style.transform = 'rotate(0deg)';
-                        }
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
                     });
-
-                    // Toggle current accordion
-                    if (content.style.maxHeight) {
-                        content.style.maxHeight = null;
-                        icon.style.transform = 'rotate(0deg)';
-                    } else {
-                        content.style.maxHeight = content.scrollHeight + 'px';
-                        icon.style.transform = 'rotate(90deg)';
-                    }
-                });
+                }
             });
         });
+        
+        // Fade-in on scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('section-visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections with the section-hidden class
+        document.querySelectorAll('.section-hidden').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Animate skill bars when they come into view
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-progress');
+                    skillBars.forEach(bar => {
+                        // Reset width to 0 then animate to actual value
+                        const width = bar.style.width;
+                        bar.style.width = '0';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 300);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        // Observe skills section
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            skillObserver.observe(skillsSection);
+        }
     </script>
 </body>
 </html>
-

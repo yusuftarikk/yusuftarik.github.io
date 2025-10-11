@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yusuf Tarik - Data Analyst</title>
+    <title>Yusuf Tarik Hassan - Data Analyst</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -69,6 +69,19 @@
                 border-radius: 4px;
                 transition: width 1s ease-in-out;
             }
+            
+            .project-image {
+                transition: transform 0.3s ease;
+            }
+            
+            .project-card:hover .project-image {
+                transform: scale(1.05);
+            }
+            
+            .skill-category {
+                background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+                border: 1px solid rgba(100, 116, 139, 0.3);
+            }
         }
     </style>
 </head>
@@ -76,7 +89,7 @@
     <!-- Navigation Bar -->
     <nav class="fixed top-0 left-0 right-0 z-50 frosted-glass border-b border-slate-800">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-semibold text-white">Yusuf Tarik</a>
+            <a href="#" class="text-xl font-semibold text-white">Yusuf Tarik Hassan</a>
             <div class="hidden md:flex space-x-8">
                 <a href="#about" class="hover:text-teal-400 transition-colors duration-300">About</a>
                 <a href="#skills" class="hover:text-teal-400 transition-colors duration-300">Skills</a>
@@ -107,7 +120,7 @@
     <section id="hero" class="min-h-screen flex items-center pt-16">
         <div class="container mx-auto px-4 py-16">
             <div class="max-w-3xl mx-auto text-center">
-                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Yusuf Tarik</h1>
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Yusuf Tarik Hassan</h1>
                 <div class="h-12 md:h-16 mb-6 overflow-hidden">
                     <h2 class="text-xl md:text-3xl font-medium text-teal-400 inline-block overflow-hidden whitespace-nowrap border-r-4 border-teal-400 animate-typewriter">
                         Data Analyst & BI Specialist
@@ -188,128 +201,153 @@
     <section id="skills" class="py-20 bg-slate-800/30 section-hidden">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Technical Skills</h2>
-            <div class="max-w-4xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 class="text-xl font-semibold text-white mb-4">Data Analysis & Visualization</h3>
-                        <div class="space-y-4">
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-slate-300">SQL</span>
-                                    <span class="text-teal-400">Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
-                                </div>
+            
+            <!-- Data Analysis & Visualization Category -->
+            <div class="max-w-6xl mx-auto mb-12">
+                <div class="skill-category rounded-xl p-6 mb-8">
+                    <h3 class="text-2xl font-semibold text-teal-400 mb-6 text-center">Data Analysis & Visualization</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- SQL -->
+                        <div class="bg-slate-800/50 rounded-lg p-4 border border-slate-700 hover:border-teal-400/50 transition-colors duration-300">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">SQL</span>
+                                <span class="text-teal-400 text-sm font-semibold">Advanced</span>
                             </div>
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-slate-300">Power BI</span>
-                                    <span class="text-teal-400">Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
-                                </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
                             </div>
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-slate-300">Tableau</span>
-                                    <span class="text-teal-400">Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 80%"></div>
-                                </div>
+                        </div>
+                        
+                        <!-- Power BI -->
+                        <div class="bg-slate-800/50 rounded-lg p-4 border border-slate-700 hover:border-teal-400/50 transition-colors duration-300">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">Power BI</span>
+                                <span class="text-teal-400 text-sm font-semibold">Advanced</span>
                             </div>
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-slate-300">Looker</span>
-                                    <span class="text-teal-400">Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 80%"></div>
-                                </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
                             </div>
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-slate-300">Python (pandas, NumPy)</span>
-                                    <span class="text-teal-400">Intermediate</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 75%"></div>
-                                </div>
+                        </div>
+                        
+                        <!-- Tableau -->
+                        <div class="bg-slate-800/50 rounded-lg p-4 border border-slate-700 hover:border-teal-400/50 transition-colors duration-300">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">Tableau</span>
+                                <span class="text-teal-400 text-sm font-semibold">Advanced</span>
                             </div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-slate-300">R & R Studio</span>
-                                <span class="text-teal-400">Intermediate</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Looker -->
+                        <div class="bg-slate-800/50 rounded-lg p-4 border border-slate-700 hover:border-teal-400/50 transition-colors duration-300">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">Looker</span>
+                                <span class="text-teal-400 text-sm font-semibold">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Python -->
+                        <div class="bg-slate-800/50 rounded-lg p-4 border border-slate-700 hover:border-teal-400/50 transition-colors duration-300">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">Python (pandas, NumPy)</span>
+                                <span class="text-teal-400 text-sm font-semibold">Intermediate</span>
                             </div>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 75%"></div>
                             </div>
                         </div>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold text-white mb-4">Analytics & Tools</h3>
-                        <div class="space-y-4">
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-slate-300">Statistical Analysis</span>
-                                    <span class="text-teal-400">Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
-                                </div>
+                        
+                        <!-- R & R Studio -->
+                        <div class="bg-slate-800/50 rounded-lg p-4 border border-slate-700 hover:border-teal-400/50 transition-colors duration-300">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">R & R Studio</span>
+                                <span class="text-teal-400 text-sm font-semibold">Intermediate</span>
                             </div>
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-slate-300">Excel</span>
-                                    <span class="text-teal-400">Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-slate-300">NLP</span>
-                                    <span class="text-teal-400">Intermediate</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 70%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-slate-300">Azure Data Studio</span>
-                                    <span class="text-teal-400">Beginner</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 60%"></div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-slate-300">Google Cloud Platform</span>
-                                        <span class="text-teal-400">Intermediate</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 60%"></div>
-                                    </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="mt-12">
-                    <h3 class="text-xl font-semibold text-white mb-6 text-center">Core Competencies</h3>
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-teal-400">Customer Segmentation</span>
-                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-teal-400">Churn Analysis</span>
-                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-teal-400">KPI Dashboarding</span>
-                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-teal-400">Predictive Analytics</span>
-                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-teal-400">Data Governance</span>
-                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-teal-400">Reporting Automation</span>
-                        <span class="px-4 py-2 bg-slate-800 rounded-lg text-teal-400">Stakeholder Management</span>
+                <!-- Analytics & Tools Category -->
+                <div class="skill-category rounded-xl p-6">
+                    <h3 class="text-2xl font-semibold text-teal-400 mb-6 text-center">Analytics & Tools</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Statistical Analysis -->
+                        <div class="bg-slate-800/50 rounded-lg p-4 border border-slate-700 hover:border-teal-400/50 transition-colors duration-300">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">Statistical Analysis</span>
+                                <span class="text-teal-400 text-sm font-semibold">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Excel -->
+                        <div class="bg-slate-800/50 rounded-lg p-4 border border-slate-700 hover:border-teal-400/50 transition-colors duration-300">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">Excel</span>
+                                <span class="text-teal-400 text-sm font-semibold">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- NLP -->
+                        <div class="bg-slate-800/50 rounded-lg p-4 border border-slate-700 hover:border-teal-400/50 transition-colors duration-300">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">NLP</span>
+                                <span class="text-teal-400 text-sm font-semibold">Intermediate</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Azure Data Studio -->
+                        <div class="bg-slate-800/50 rounded-lg p-4 border border-slate-700 hover:border-teal-400/50 transition-colors duration-300">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">Azure Data Studio</span>
+                                <span class="text-teal-400 text-sm font-semibold">Beginner</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 40%"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Google Cloud Platform -->
+                        <div class="bg-slate-800/50 rounded-lg p-4 border border-slate-700 hover:border-teal-400/50 transition-colors duration-300">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">Google Cloud Platform</span>
+                                <span class="text-teal-400 text-sm font-semibold">Intermediate</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 65%"></div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </div>
+            
+            <!-- Core Competencies -->
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-2xl font-semibold text-white mb-6 text-center">Core Competencies</h3>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <span class="px-4 py-2 bg-slate-800 rounded-lg text-teal-400 border border-slate-700 hover:border-teal-400/50 transition-colors duration-300">Customer Segmentation</span>
+                    <span class="px-4 py-2 bg-slate-800 rounded-lg text-teal-400 border border-slate-700 hover:border-teal-400/50 transition-colors duration-300">Churn Analysis</span>
+                    <span class="px-4 py-2 bg-slate-800 rounded-lg text-teal-400 border border-slate-700 hover:border-teal-400/50 transition-colors duration-300">KPI Dashboarding</span>
+                    <span class="px-4 py-2 bg-slate-800 rounded-lg text-teal-400 border border-slate-700 hover:border-teal-400/50 transition-colors duration-300">Predictive Analytics</span>
+                    <span class="px-4 py-2 bg-slate-800 rounded-lg text-teal-400 border border-slate-700 hover:border-teal-400/50 transition-colors duration-300">Data Governance</span>
+                    <span class="px-4 py-2 bg-slate-800 rounded-lg text-teal-400 border border-slate-700 hover:border-teal-400/50 transition-colors duration-300">Reporting Automation</span>
+                    <span class="px-4 py-2 bg-slate-800 rounded-lg text-teal-400 border border-slate-700 hover:border-teal-400/50 transition-colors duration-300">Stakeholder Management</span>
                 </div>
             </div>
         </div>
@@ -345,7 +383,7 @@
                     <div class="mb-10 ml-6">
                         <div class="absolute -left-2 mt-1.5 h-4 w-4 rounded-full border border-white bg-teal-500"></div>
                         <div class="flex flex-wrap items-baseline">
-                            <h3 class="text-xl font-semibold text-white">Associate Account Management Billing Program</h3>
+                            <h3 class="text-xl font-semibold text-white">Associate Account Management Billing program</h3>
                             <span class="ml-2 text-teal-400">Sutherland</span>
                         </div>
                         <p class="text-slate-400 mb-2">Alexandria, Egypt | Sep 2022 – Apr 2023</p>
@@ -398,8 +436,10 @@
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                 <!-- Project 1 -->
-                <div class="frosted-glass rounded-xl overflow-hidden border border-slate-700 hover:border-teal-400/30 transition-all duration-300">
-                    <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Coffee+Sales+Dashboard" alt="Coffee Sales Dashboard" class="w-full h-48 object-cover">
+                <div class="project-card frosted-glass rounded-xl overflow-hidden border border-slate-700 hover:border-teal-400/30 transition-all duration-300">
+                    <div class="overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Coffee+Sales+Dashboard" alt="Coffee Sales Dashboard" class="w-full h-48 object-cover project-image">
+                    </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-white mb-2">Coffee Sales Dashboard</h3>
                         <p class="text-slate-400 mb-4">Comprehensive coffee sales analysis with dynamic dashboard in Excel using XLOOKUP, INDEX/MATCH, Pivot Tables, and charts to visualize sales trends, top customers, and geographic breakdown.</p>
@@ -410,14 +450,16 @@
                             <span class="px-2 py-1 bg-slate-700 rounded text-sm">Data Visualization</span>
                         </div>
                         <div class="flex space-x-4">
-                            <a href="https://github.com/yusuftarikk/Coffee-Sales-Project.git" target="_blank" class="text-teal-400 hover:text-teal-300 transition-colors duration-300">View Project</a>
+                            <a href="https://github.com/yusuftarikk/Coffee-Sales-Dashboard" target="_blank" class="text-teal-400 hover:text-teal-300 transition-colors duration-300">View Project</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="frosted-glass rounded-xl overflow-hidden border border-slate-700 hover:border-teal-400/30 transition-all duration-300">
-                    <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Plant+Co+Dashboard" alt="Plant Co Performance Dashboard" class="w-full h-48 object-cover">
+                <div class="project-card frosted-glass rounded-xl overflow-hidden border border-slate-700 hover:border-teal-400/30 transition-all duration-300">
+                    <div class="overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Plant+Co+Dashboard" alt="Plant Co Performance Dashboard" class="w-full h-48 object-cover project-image">
+                    </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-white mb-2">Plant Co Performance Dashboard</h3>
                         <p class="text-slate-400 mb-4">Developed a Power BI dashboard to analyze product sales, gross profit, and quantity trends over time. Automated KPI reporting, reducing manual efforts by 8+ hours monthly.</p>
@@ -434,8 +476,10 @@
                 </div>
 
                 <!-- Project 3 -->
-                <div class="frosted-glass rounded-xl overflow-hidden border border-slate-700 hover:border-teal-400/30 transition-all duration-300">
-                    <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Comcast+Complaints+Analysis" alt="Comcast Complaints Analysis" class="w-full h-48 object-cover">
+                <div class="project-card frosted-glass rounded-xl overflow-hidden border border-slate-700 hover:border-teal-400/30 transition-all duration-300">
+                    <div class="overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Comcast+Complaints+Analysis" alt="Comcast Complaints Analysis" class="w-full h-48 object-cover project-image">
+                    </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-white mb-2">Comcast Complaints Analysis</h3>
                         <p class="text-slate-400 mb-4">Built an NLP pipeline to categorize 2,000+ customer complaints and designed an interactive Tableau dashboard for executives to monitor complaint trends and root causes.</p>
@@ -452,8 +496,10 @@
                 </div>
 
                 <!-- Project 4 -->
-                <div class="frosted-glass rounded-xl overflow-hidden border border-slate-700 hover:border-teal-400/30 transition-all duration-300">
-                    <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Online+Sales+Analysis" alt="Online Sales Analysis" class="w-full h-48 object-cover">
+                <div class="project-card frosted-glass rounded-xl overflow-hidden border border-slate-700 hover:border-teal-400/30 transition-all duration-300">
+                    <div class="overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Online+Sales+Analysis" alt="Online Sales Analysis" class="w-full h-48 object-cover project-image">
+                    </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-white mb-2">Online Sales Data Analysis</h3>
                         <p class="text-slate-400 mb-4">Analyzed 10k+ transaction records using Python (pandas, matplotlib) to uncover revenue patterns and identify high-value customer segments that contributed to 12% of total revenue.</p>
